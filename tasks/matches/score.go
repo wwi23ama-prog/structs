@@ -22,11 +22,6 @@ func (s Score) String() string {
 // Result gibt zurück, wer das Spiel gewonnen hat.
 // 0: Unentschieden, 1: Heimmannschaft gewinnt, 2: Gäste gewinnen
 func (s Score) Result() int {
-	// Prüfen Sie, ob die Heimmannschaft mehr Tore geschossen hat als die Gäste.
-	// Wenn ja, geben Sie 1 zurück.
-	// Wenn nein, prüfen Sie, ob die Gäste mehr Tore geschossen haben als die Heimmannschaft.
-	// Wenn ja, geben Sie 2 zurück.
-	// Wenn nein, geben Sie 0 zurück.
 
 	// TODO
 
