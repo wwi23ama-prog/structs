@@ -27,11 +27,8 @@ func (s Score) Result() int {
 	// Wenn nein, prüfen Sie, ob die Gäste mehr Tore geschossen haben als die Heimmannschaft.
 	// Wenn ja, geben Sie 2 zurück.
 	// Wenn nein, geben Sie 0 zurück.
-	if s.Home > s.Visitors {
-		return 1
-	} else if s.Home < s.Visitors {
-		return 2
-	} else {
-		return 0
-	}
+
+	// TODO
+
+	return 0
 }

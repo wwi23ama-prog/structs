@@ -1,7 +1,5 @@
 package matches
 
-import "fmt"
-
 // Match ist ein Datentyp, der das Ergebnis eines Sportspiels speichern soll.
 type Match struct {
 	home     string
@@ -21,20 +19,17 @@ func (m Match) HomeName() string {
 	// Verwenden Sie die Methode Result() des Score-Typs, um zu prüfen,
 	// ob die Heimmannschaft gewonnen hat.
 
-	if m.score.Result() == 1 {
-		return fmt.Sprintf("*%s*", m.home)
-	}
-	return m.home
+	// TODO
+	return ""
 }
 
 // VisitorName gibt den Namen der Auswärtsmannschaft zurück.
 // Falls die Auswärtsmannschaft gewonnen hat, wird der Name in Sternchen gesetzt.
 func (m Match) VisitorName() string {
 	// Gehen Sie analog zu HomeName vor.
-	if m.score.Result() == 2 {
-		return fmt.Sprintf("*%s*", m.visitors)
-	}
-	return m.visitors
+
+	// TODO
+	return ""
 }
 
 // String gibt das Match als String in der Form "FC Freiburg - *Borussia Bremen*: 1:2" zurück.
@@ -44,19 +39,16 @@ func (m Match) String() string {
 	// Verwenden Sie die Methoden HomeName und VisitorName, um die Namen der
 	// Mannschaften zu erhalten.
 	// Verwenden Sie das Feld m.score, um den Spielstand zu erhalten.
-	return fmt.Sprintf("%s - %s: %s", m.HomeName(), m.VisitorName(), m.score)
+
+	// TODO
+	return ""
 }
 
 // Winner gibt den Namen des Gewinners zurück.
 // Wenn es keinen Gewinner gibt, wird "unentschieden" zurückgegeben.
 func (m Match) Winner() string {
 	// Verwenden Sie m.score.Result(), um zu prüfen, ob es einen Gewinner gibt.
-	switch m.score.Result() {
-	case 1:
-		return m.home
-	case 2:
-		return m.visitors
-	default:
-		return "unentschieden"
-	}
+
+	// TODO
+	return ""
 }

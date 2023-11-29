@@ -1,7 +1,6 @@
 package matches
 
 import (
-	"fmt"
 	"slices"
 )
 
@@ -40,13 +39,8 @@ func (ml MatchList) Points(name string) int {
 	// Falls ja, addieren Sie 3 Punkte.
 	// Falls nein, prüfen Sie, ob die Mannschaft überhaupt gespielt hat und ob das Spiel unentschieden ausging.
 
-	for _, m := range ml.matches {
-		if m.Winner() == name {
-			points += 3
-		} else if (m.HomeName() == name || m.VisitorName() == name) && m.score.Result() == 0 {
-			points++
-		}
-	}
+	// TODO
+
 	return points
 }
 
@@ -58,15 +52,8 @@ func (ml MatchList) GoalDiff(name string) int {
 	// ob die Mannschaft mit dem übergebenen Namen Heim- oder Auswärtsmannschaft war.
 	// Addieren Sie dann die Anzahl der geschossenen Tore und subtrahieren Sie die Anzahl der kassierten Tore.
 
-	for _, m := range ml.matches {
-		if m.home == name {
-			goals += m.score.Home
-			goals -= m.score.Visitors
-		} else if m.visitors == name {
-			goals += m.score.Visitors
-			goals -= m.score.Home
-		}
-	}
+	// TODO
+
 	return goals
 }
 
@@ -79,15 +66,8 @@ func (ml MatchList) Teams() []string {
 	// Iterieren Sie über alle Matches in der MatchList und sammlen Sie die Namen der Mannschaften.
 	// Verwenden Sie die Funktion slices.Contains, um zu prüfen, ob ein Name schon in der Liste vorkommt.
 
-	for _, m := range ml.matches {
-		home, visitor := m.home, m.visitors
-		if !slices.Contains(teams, home) {
-			teams = append(teams, home)
-		}
-		if !slices.Contains(teams, visitor) {
-			teams = append(teams, visitor)
-		}
-	}
+	// TODO
+
 	slices.Sort(teams)
 	return teams
 }
@@ -97,10 +77,6 @@ func (ml MatchList) Teams() []string {
 // Falls t1 und t2 gleich stehen, soll 0 zurückgegeben werden.
 // Die Teams sollen dabei nach den gleichen Regeln sortiert werden, wie in der Table-Methode.
 func (ml MatchList) Compare(t1, t2 string) int {
-	p1 := ml.Points(t1)
-	p2 := ml.Points(t2)
-	g1 := ml.GoalDiff(t1)
-	g2 := ml.GoalDiff(t2)
 
 	// Vergleichen Sie die Punkte der beiden Teams.
 	// Wenn sie unterschiedlich sind, geben Sie das Ergebnis des Vergleichs zurück.
@@ -108,17 +84,8 @@ func (ml MatchList) Compare(t1, t2 string) int {
 	// Wenn sie unterschiedlich sind, geben Sie das Ergebnis des Vergleichs zurück.
 	// Wenn sie gleich sind, geben Sie 0 zurück.
 
-	if p1 > p2 {
-		return -1
-	} else if p1 < p2 {
-		return 1
-	} else {
-		if g1 > g2 {
-			return -1
-		} else if g1 < g2 {
-			return 1
-		}
-	}
+	// TODO
+
 	return 0
 }
 
@@ -137,15 +104,7 @@ func (ml MatchList) Table() []string {
 	// Iterieren Sie dann über die sortierten Mannschaften und hängen Sie für jede Mannschaft
 	// eine Zeile an die Tabelle an, die die Position, den Namen, die Punkte und die Tordifferenz enthält.
 
-	teams := ml.Teams()
-	slices.SortFunc(teams, func(t1, t2 string) int {
-		return ml.Compare(t1, t2)
-	})
+	// TODO
 
-	for pos, team := range teams {
-		points := ml.Points(team)
-		goalDiff := ml.GoalDiff(team)
-		table = append(table, fmt.Sprintf("%d %s %d %d", pos+1, team, points, goalDiff))
-	}
 	return table
 }
